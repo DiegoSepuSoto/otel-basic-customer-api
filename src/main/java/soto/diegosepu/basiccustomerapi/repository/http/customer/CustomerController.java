@@ -18,6 +18,10 @@ public class CustomerController {
         try {
             long delay = 1000 + (long) (Math.random() * 1000);
             Thread.sleep(delay);
+
+            if (delay > 1800) {
+                throw new RuntimeException("timeout error, greater than 1.8 seconds");
+            }
         } catch (InterruptedException e) {
             logger.error("error on delay: {}", e.toString());
             e.printStackTrace();
