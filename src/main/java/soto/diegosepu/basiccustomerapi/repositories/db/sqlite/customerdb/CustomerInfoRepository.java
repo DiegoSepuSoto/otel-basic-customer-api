@@ -80,8 +80,7 @@ public class CustomerInfoRepository implements CustomerInfoI {
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)) {
 
-            long delay = 1000 + (long) (Math.random() * 1000);
-            Thread.sleep(delay);
+            Thread.sleep(500);
 
             while (rs.next()) {
                 String name = rs.getString("name");
@@ -95,7 +94,6 @@ public class CustomerInfoRepository implements CustomerInfoI {
             logger.error(e.getMessage());
         } catch (InterruptedException e) {
             logger.error("error on delay: {}", e.toString());
-            e.printStackTrace();
         }
 
         return null;

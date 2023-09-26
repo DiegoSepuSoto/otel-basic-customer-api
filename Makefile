@@ -6,9 +6,8 @@ start:
 	-d \
 	-p 8080:8080 \
 	--name otel-basic-customer-api \
-	-e OTEL_TRACES_EXPORTER=none \
-	-e OTEL_METRICS_EXPORTER=none \
-	-e OTEL_LOGS_EXPORTER=logging \
+	-e OTEL_TRACES_EXPORTER=otlp \
+	-e OTEL_EXPORTER_OTLP_ENDPOINT=http://host.docker.internal:4317 \
 	-e OTEL_RESOURCE_ATTRIBUTES=service.name=customer-api,service.version=1.0,deployment.environment=local \
 	diegosepusoto/otel-basic-customer-api:local
 
