@@ -26,7 +26,6 @@ public class CustomerInfoRepository implements CustomerInfoI {
             conn = DriverManager.getConnection(databaseURL);
 
             logger.info("connection to SQLite has been established");
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
